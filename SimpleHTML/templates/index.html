@@ -1,0 +1,83 @@
+{% load static%}
+<html>
+<head>
+    <title>Canoa Havaiana</title>
+    <link rel="stylesheet" href="{% static 'simple/css/style.css' %}">
+</head>
+<body>
+<header>
+    <h1>Canoa Havaiana</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Início</a></li>
+            <li><a href="#sobre-nos">Sobre Nós</a></li>
+            <li><a href="#dicas">Dicas</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="sobre-nos">
+        <h2>Sobre Nós</h2>
+        <p>Somos uma equipe de remadores apaixonados por canoa havaiana e comprometidos em promover esse esporte
+            incrível para o mundo. Começamos a praticar canoa havaiana há alguns anos e desde então temos competido em
+            várias regatas e eventos, sempre buscando melhorar nossas habilidades e conexão com a natureza.</p>
+        <p>Se você está interessado em se juntar à nossa equipe ou simplesmente quer saber mais sobre a canoa havaiana,
+            não hesite em entrar em contato conosco.</p>
+    </section>
+
+    <section id="dicas">
+        <h2>Dicas</h2>
+        <p>Aqui estão algumas dicas e informações úteis para aqueles que estão começando a praticar canoa havaiana:</p>
+        <ul>
+            <li>Escolha uma canoa adequada ao seu nível de habilidade e tamanho</li>
+            <li>Pratique a técnica correta de remo para evitar lesões e melhorar o desempenho</li>
+            <li>Mantenha-se hidratado e bem alimentado antes e durante o treinamento</li>
+            <li>Esteja sempre atento às condições climáticas e de maré antes de sair para remar</li>
+        </ul>
+    </section>
+
+    <section id="galeria">
+        <h2>Galeria</h2>
+        <div class="gallery">
+            <img src="{% static 'simple/imgs/canoa.jpg' %}" alt="Canoa havaiana">
+            <img src="{% static 'simple/imgs/canoa2.jpg' %}" alt="Canoa havaiana">
+        </div>
+    </section>
+
+    <section>
+        <form class="formulary" method="POST" action="{% url 'salvar_contato' %}">
+            {% csrf_token %}
+            <h1>Entre em contato</h1>
+            <br>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <br>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required>
+            <br>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+            <br>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+</main>
+
+
+<footer>
+    <p>&copy; 2023 Canoa Havaiana. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>
+
+
